@@ -1,0 +1,4 @@
+<%= simple_form_for [@message, @message.replies.build] do |form| %>
+  <%= form.input :content, label: 'What would you like to reply with?' %>
+  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>
