@@ -1,0 +1,4 @@
+<%= simple_form_for @message do |form| %>
+  <%= form.input :content, label: 'What would you like to say?' %>
+  <%= form.submit 'Submit', class: 'btn btn-primary' %>
+<% end %>

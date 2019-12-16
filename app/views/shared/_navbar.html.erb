@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "MessageBoard", root_path, class: 'navbar-brand' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "Create a Message", new_message_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Contact Us", contact_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+        <% if !current_user %>
+          <li class="nav-item">
+            <%- if controller_name != 'sessions' %>
+              <%= link_to "Log in", new_session_path(resource_name), class: "nav-link" %>
+            <% end %>
+          </li>
+          <li>
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Sign up", new_registration_path(resource_name), class: "nav-link" %>
+            <% end %>
+          </li>
+        <% else %>
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.email %>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
