@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row justify-content-center align-self-center">
     <div class="col">
+      <% flash.each do |key, value| %>
+        <h4><%= value %></h4>
+      <% end %>
+      
       <%= form_tag contactUs_path, method: 'post' do %>
         <div class="form-group">
           <%= label_tag 'Title' %>
@@ -11,9 +15,6 @@
           <%= text_area_tag :message, '', size: '100x10', class: 'form-control' %>
         </div>
         <%= submit_tag 'Submit', class: 'btn btn-primary' %>
-      <% end %>
-      <% flash.each do |key, value| %>
-        <h4><%= value %></h4>
       <% end %>
     </div>
   </div>

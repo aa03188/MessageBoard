@@ -24,6 +24,9 @@ class MessagesController < ApplicationController
     # redirect to the message that was created
     if @message.save
       redirect_to @message
+    else
+      # empty, redirect to new again
+      render 'new'
     end
   end
 
@@ -39,6 +42,9 @@ class MessagesController < ApplicationController
       if @message.update(getMessageContent)
         # redirect to the updated message
         redirect_to @message
+      else
+        # empty, redirect to edit again
+        render 'edit'
       end
     end
   end

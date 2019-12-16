@@ -12,6 +12,9 @@ class RepliesController < ApplicationController
     # redirect to the message if the reply was saved
     if @reply.save
       redirect_to message_path(@message)
+    else
+      # empty, redirect to the message
+      redirect_to message_path(@message)
     end
   end
 
