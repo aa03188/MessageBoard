@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_16_125819) do
 
-  create_table "contacts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
