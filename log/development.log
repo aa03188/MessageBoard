@@ -9515,3 +9515,1646 @@ Processing by MessagesController#all as HTML
 Completed 200 OK in 110ms (Views: 85.5ms | ActiveRecord: 22.3ms)
 
 
+  [1m[35m (8.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+Migrating to CreateReplies (20191216125819)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191216125819_create_replies.rb:3
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "message_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_34fb8b0c1a"
+FOREIGN KEY ("message_id")
+  REFERENCES "messages" ("id")
+, CONSTRAINT "fk_rails_256e4b72c5"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20191216125819_create_replies.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_replies_on_message_id" ON "replies" ("message_id")[0m
+  ↳ db/migrate/20191216125819_create_replies.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_replies_on_user_id" ON "replies" ("user_id")[0m
+  ↳ db/migrate/20191216125819_create_replies.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191216125819"]]
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[35m (15.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[36mActiveRecord::InternalMetadata Load (7.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+  [1m[35m (21.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/lib/ruby/vendor_ruby/rake/task.rb:271
+Started GET "/" for 127.0.0.1 at 2019-12-16 13:19:11 +0000
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MessagesController#all as HTML
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering messages/all.html.erb within layouts/application
+  [1m[36mMessage Load (12.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY created_at DESC[0m
+  ↳ app/views/messages/all.html.erb:4
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (83.0ms)
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (13.3ms)
+  Rendered messages/all.html.erb within layouts/application (181.3ms)
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:19:13 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (7.3ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 7146ms (Views: 6925.7ms | ActiveRecord: 157.2ms)
+
+
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (5.6ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered messages/show.html.erb within layouts/application (5907.7ms)
+Completed 500 Internal Server Error in 5936ms (ActiveRecord: 42.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/user/HS227/aa03188/MessageBoard/app/views"
+  * "/user/HS227/aa03188/MessageBoard/vendor/bundle/ruby/2.5.0/gems/devise-4.7.1/app/views"
+):
+    11:       <!-- !! -->
+    12:       <span><%= @message.replies.count %></span>
+    13:       <%= render @message.replies %>
+    14:       <%= render partial: 'comments/form' %>
+    15:     </div>
+    16:   </div>
+    17: </div>
+  
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__1755309619911487780_70129534765540'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:19:21 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (13.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (373.4ms)
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.6ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered messages/show.html.erb within layouts/application (414.7ms)
+Completed 500 Internal Server Error in 1263ms (ActiveRecord: 47.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial comments/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/user/HS227/aa03188/MessageBoard/app/views"
+  * "/user/HS227/aa03188/MessageBoard/vendor/bundle/ruby/2.5.0/gems/devise-4.7.1/app/views"
+):
+    11:       <!-- !! -->
+    12:       <span><%= @message.replies.count %></span>
+    13:       <%= render @message.replies %>
+    14:       <%= render partial: 'comments/form' %>
+    15:     </div>
+    16:   </div>
+    17: </div>
+  
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__1755309619911487780_70129534743560'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:19:42 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (9.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (6.8ms)
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (192.7ms)
+  Rendered messages/show.html.erb within layouts/application (223.0ms)
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 59.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `message_replies_path' for #<#<Class:0x000055e54dba4e28>:0x00007f90ad8e31c8>
+Did you mean?  message_path):
+    1: <%= simple_form_for [@message, @message.replies.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb__1024489271892181198_70129681521080'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__1755309619911487780_70129681917020'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:20:43 +0000
+  [1m[35m (10.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (16.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (13.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (82.9ms)
+  [1m[35m (23.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (24.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (22.2ms)
+  Rendered messages/show.html.erb within layouts/application (261.2ms)
+Completed 500 Internal Server Error in 524ms (ActiveRecord: 265.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `replys' for #<Message:0x00005597a20b3da0>
+Did you mean?  replies):
+    1: <%= simple_form_for [@message, @message.replys.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_47054883631400'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_47054873435020'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:20:49 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (14.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (19.9ms)
+  [1m[35m (69.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (31.8ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (474.6ms)
+  Rendered messages/show.html.erb within layouts/application (603.6ms)
+Completed 500 Internal Server Error in 651ms (ActiveRecord: 199.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `message_replies_path' for #<#<Class:0x00005597a2066c80>:0x00007f3e9c51a860>
+Did you mean?  message_path):
+    1: <%= simple_form_for [@message, @message.replies.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_69953443322820'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_69953443673680'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:23:22 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (12.4ms)
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (12.5ms)
+  Rendered messages/show.html.erb within layouts/application (68.0ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 101.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `replys' for #<Message:0x00007f3e9c630a88>
+Did you mean?  replies):
+    1: <%= simple_form_for [@message, @message.replys.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_69953443947440'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_69953444207700'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:23:24 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (4.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (6.2ms)
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (5.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (6.7ms)
+  Rendered messages/show.html.erb within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 26.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `replys' for #<Message:0x00007f3e9c490cf0>
+Did you mean?  replies):
+    1: <%= simple_form_for [@message, @message.replys.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_69953443258580'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_69953443356040'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:23:26 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (8.3ms)
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (7.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (12.2ms)
+  Rendered messages/show.html.erb within layouts/application (42.4ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 32.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `replys' for #<Message:0x00005597a3075180>
+Did you mean?  replies):
+    1: <%= simple_form_for [@message, @message.replys.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_47054881182180'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_47054881773180'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:23:27 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (8.8ms)
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (12.6ms)
+  Rendered messages/show.html.erb within layouts/application (42.0ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 29.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `replys' for #<Message:0x00007f3e9cb7ab38>
+Did you mean?  replies):
+    1: <%= simple_form_for [@message, @message.replys.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_69953446881060'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_69953446989040'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:23:48 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.0ms)
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.2ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered replies/_replyform.html.erb (142.0ms)
+  Rendered messages/show.html.erb within layouts/application (194.7ms)
+Completed 500 Internal Server Error in 378ms (ActiveRecord: 189.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `message_replies_path' for #<#<Class:0x00007f3e9c6a0e78>:0x00007f3e9c69afc8>
+Did you mean?  message_path):
+    1: <%= simple_form_for [@message, @message.replies.build] do |form| %>
+    2:   <%= form.input :content, label: 'What would you like to reply with?' %>
+    3:   <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    4: <% end %>
+  
+app/views/replies/_replyform.html.erb:1:in `_app_views_replies__replyform_html_erb___3144887434671562450_69953444123820'
+app/views/messages/show.html.erb:14:in `_app_views_messages_show_html_erb__2518088040363139249_69953444449240'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:25:32 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (18.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (11.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (32.9ms)
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (20.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (40.1ms)
+  Rendered messages/show.html.erb within layouts/application (137.5ms)
+  Rendered shared/_navbar.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 1018ms (Views: 799.8ms | ActiveRecord: 188.1ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:26:54 +0000
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (29.6ms)
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (6.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (111.5ms)
+  Rendered messages/show.html.erb within layouts/application (185.2ms)
+  Rendered shared/_navbar.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 948ms (Views: 781.1ms | ActiveRecord: 109.4ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:27:06 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (9.5ms)
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mReply Load (5.5ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:13
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered replies/_replyform.html.erb (6.8ms)
+  Rendered messages/show.html.erb within layouts/application (36.0ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 133ms (Views: 96.2ms | ActiveRecord: 30.6ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:27:17 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5GP0ZUPci8uq685DRfYqLsPrQ0GTt4a9Wl2vw51+gi7QRcAnx5CT1KAgrMD06b4+osKHsTaktBZatdMTrSdrlg==", "reply"=>{"content"=>"Hello there."}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:9
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 15.8ms)
+
+
+  
+ActionView::MissingTemplate (Missing template replies/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/user/HS227/aa03188/MessageBoard/app/views"
+  * "/user/HS227/aa03188/MessageBoard/vendor/bundle/ruby/2.5.0/gems/devise-4.7.1/app/views"
+):
+  
+app/controllers/replies_controller.rb:12:in `create'
+Started GET "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:00 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RepliesController):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/abstract_controller/base.rb:129:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionview-5.2.4/lib/action_view/rendering.rb:32:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:191:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:252:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:34:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/configuration.rb:227:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:674:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:476:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:334:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:31:04 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.4ms)
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (5.7ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (51.4ms)
+  Rendered messages/show.html.erb within layouts/application (101.3ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 326ms (Views: 139.6ms | ActiveRecord: 142.1ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:07 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kvCaS2AmypayC6eb4hUXYMSfvoGzrX/zQhNuPVj/R96m1q4J5GrSibjAxRhTCoNwpbZ6cRa+TVhC+xLtaKauZg==", "reply"=>{"content"=>"test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 15.5ms)
+
+
+  
+NoMethodError (undefined method `permit' for nil:NilClass):
+  
+app/controllers/replies_controller.rb:6:in `create'
+Started GET "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:10 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RepliesController):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/abstract_controller/base.rb:129:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionview-5.2.4/lib/action_view/rendering.rb:32:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:191:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:252:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:34:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/configuration.rb:227:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:674:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:476:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:334:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:16 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kvCaS2AmypayC6eb4hUXYMSfvoGzrX/zQhNuPVj/R96m1q4J5GrSibjAxRhTCoNwpbZ6cRa+TVhC+xLtaKauZg==", "reply"=>{"content"=>"test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 12.1ms)
+
+
+  
+NoMethodError (undefined method `permit' for nil:NilClass):
+  
+app/controllers/replies_controller.rb:6:in `create'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:31:41 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (8.0ms)
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (5.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (17.9ms)
+  Rendered messages/show.html.erb within layouts/application (67.1ms)
+  Rendered shared/_navbar.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 392ms (Views: 241.1ms | ActiveRecord: 119.1ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:43 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fe8J7ZLS7/DXijlDmmA7QrNzwIHjxkFf3g0e/Ei9Gy0hyT2vFp73791BW8Arf69S0loEcUbVc/Te5WIseOTylQ==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.8ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 13.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template replies/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/user/HS227/aa03188/MessageBoard/app/views"
+  * "/user/HS227/aa03188/MessageBoard/vendor/bundle/ruby/2.5.0/gems/devise-4.7.1/app/views"
+):
+  
+app/controllers/replies_controller.rb:14:in `create'
+Started GET "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:31:59 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RepliesController):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/abstract_controller/base.rb:129:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionview-5.2.4/lib/action_view/rendering.rb:32:in `process'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:191:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_controller/metal.rb:252:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:34:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.8/lib/warden/manager.rb:34:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.7.0/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.4/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.4/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.4/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/configuration.rb:227:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:674:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:476:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/server.rb:334:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.12.2/lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:32:01 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (8.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (14.9ms)
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.2ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (30.8ms)
+  Rendered messages/show.html.erb within layouts/application (93.4ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 293ms (Views: 123.2ms | ActiveRecord: 130.0ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:32:03 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ruUVTtrcqFpsD40UsBxAxxS+Y4OwR1nhAQAqio/jNpyawyEMXpCwRWbE75cBA9TXdZencxVUa0oB6FZav7rfJA==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+No template found for RepliesController#create, rendering head :no_content
+Completed 204 No Content in 729ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:32:06 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.7ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.1ms)
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (10.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (6.3ms)
+  Rendered messages/show.html.erb within layouts/application (46.3ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 202ms (Views: 154.7ms | ActiveRecord: 43.1ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:33:52 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.7ms)
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (5.9ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (28.8ms)
+  Rendered messages/show.html.erb within layouts/application (81.0ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 286ms (Views: 135.1ms | ActiveRecord: 114.8ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:33:54 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VeoxXdN7uMW6EYK9j1GqZr/btODCHXnXBgIxHcy/zKlhzAUfVzeg2rDa4D4+Tj523vJwEGcOS3wG6k3N/OYlEQ==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.7ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 14.5ms)
+
+
+  
+ActionView::MissingTemplate (Missing template replies/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/user/HS227/aa03188/MessageBoard/app/views"
+  * "/user/HS227/aa03188/MessageBoard/vendor/bundle/ruby/2.5.0/gems/devise-4.7.1/app/views"
+):
+  
+app/controllers/replies_controller.rb:14:in `create'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:38:05 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.6ms)
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.1ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (27.9ms)
+  Rendered messages/show.html.erb within layouts/application (77.7ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 270ms (Views: 119.3ms | ActiveRecord: 112.9ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:38:07 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/8YixDuqfblldXDiRLMSAIKjF5mo/n2CEwleDjqxMSnL4BaGv+Zlpm++EmH1rIYQ44rTaQ3tTykT4SLeCujYkQ==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+No template found for RepliesController#create, rendering head :no_content
+Completed 204 No Content in 337ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:38:10 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (19.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (20.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (20.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (21.8ms)
+  [1m[35m (22.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (22.2ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (2.4ms)
+  Rendered messages/show.html.erb within layouts/application (72.5ms)
+  Rendered shared/_navbar.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 337ms (Views: 226.6ms | ActiveRecord: 105.0ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:38:14 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L4i8kIDmptQkf3cUR8DfguCnZh77I6DdIdApal04NREbrojSBKq+yy60FZf230uSgY6i7l4wknYhOFW6bWHcqQ==", "reply"=>{"content"=>"Tester"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (11.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+No template found for RepliesController#create, rendering head :no_content
+Completed 204 No Content in 453ms (ActiveRecord: 21.0ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:39:01 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (9.0ms)
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (5.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (20.7ms)
+  Rendered messages/show.html.erb within layouts/application (70.2ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 219ms (Views: 107.0ms | ActiveRecord: 95.1ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:39:02 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9WeNykDiUDZxUCN0L+CvMgTMmG3tBmysid3AE9WMxDjBQbmIxK5IKXubQfee/zsiZeVcnUgVXgeJNbzD5dUtgA==", "reply"=>{"content"=>"TEst"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 12.2ms)
+
+
+  
+NoMethodError (undefined method `permit' for nil:NilClass):
+  
+app/controllers/replies_controller.rb:6:in `create'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:39:52 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (9.1ms)
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.8ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (32.0ms)
+  Rendered messages/show.html.erb within layouts/application (77.4ms)
+  Rendered shared/_navbar.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 286ms (Views: 159.9ms | ActiveRecord: 105.8ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:39:54 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"14G2yYArgGyjUWyVjK0VDo6iPBUyhl8DTP24Ybf0xUvjp4KLBGeYc6maDhY9soEe74v45ZeVbahMFcSxh60s8w==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+No template found for RepliesController#create, rendering head :no_content
+Completed 204 No Content in 343ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:39:56 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (7.5ms)
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (5.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (3.6ms)
+  Rendered messages/show.html.erb within layouts/application (26.2ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 159ms (Views: 128.4ms | ActiveRecord: 27.8ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:40:37 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (27.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (13.5ms)
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.6ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (33.8ms)
+  Rendered messages/show.html.erb within layouts/application (94.4ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 356ms (Views: 144.0ms | ActiveRecord: 173.1ms)
+
+
+Started POST "/messages/4/replies" for 127.0.0.1 at 2019-12-16 13:40:39 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HH9qGSBDGy8+j++HbGH9jqaNcIgKAlC4QSjcunCe7vEoWV5bpA8DMDREjQTdfmmex6S0eK8RYhNBwKBqQMcHSQ==", "reply"=>{"content"=>"Test"}, "commit"=>"Submit", "message_id"=>"4"}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/replies_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[36mReply Create (5.5ms)[0m  [1m[32mINSERT INTO "replies" ("content", "message_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Test"], ["message_id", 4], ["user_id", 1], ["created_at", "2019-12-16 13:40:39.343663"], ["updated_at", "2019-12-16 13:40:39.343663"]]
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/replies_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/replies_controller.rb:11
+Redirected to http://localhost:3000/messages/4
+Completed 302 Found in 63ms (ActiveRecord: 42.3ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:40:39 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (11.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (19.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (22.9ms)
+  [1m[35m (19.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (19.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of replies/_reply.html.erb [1 times] (11.8ms)
+  Rendered messages/show.html.erb within layouts/application (100.3ms)
+Completed 500 Internal Server Error in 209ms (ActiveRecord: 93.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `reply' for #<Reply:0x00007f79b820ff88>):
+    1: <%= reply.reply %>
+  
+app/views/replies/_reply.html.erb:1:in `_app_views_replies__reply_html_erb___2396276608417218902_70080378466700'
+app/views/messages/show.html.erb:12:in `_app_views_messages_show_html_erb___3830114416916517808_70080378640800'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:41:33 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (12.8ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (10.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (16.2ms)
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of replies/_reply.html.erb [1 times] (0.6ms)
+  Rendered replies/_replyform.html.erb (5.1ms)
+  Rendered messages/show.html.erb within layouts/application (93.4ms)
+  Rendered shared/_navbar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 297ms (Views: 105.5ms | ActiveRecord: 167.4ms)
+
+
+Started GET "/messages/4" for ::1 at 2019-12-16 13:43:16 +0000
+  [1m[35m (15.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.7ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (60.0ms)
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of replies/_reply.html.erb [1 times] (1.9ms)
+  Rendered replies/_replyform.html.erb (124.6ms)
+  Rendered messages/show.html.erb within layouts/application (290.4ms)
+  Rendered shared/_navbar.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 1117ms (Views: 927.2ms | ActiveRecord: 132.9ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:46:21 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (22.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  Rendered messages/shared/_messagecard.html.erb (251.6ms)
+  Rendered messages/show.html.erb within layouts/application (254.9ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 29.9ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `username' for #<#<Class:0x000055644c46f798>:0x000055644bd5eb20>):
+    1: <div class="card card-body">
+    2:   <!-- username is email without @ in my case -->
+    3:   <h3><%= username %> says...</h3>
+    4:   <span><%= message.content %></span>
+    5:   <b><%= time_ago_in_words(message.created_at) %></b>
+    6: </div>
+  
+app/views/messages/shared/_messagecard.html.erb:3:in `_app_views_messages_shared__messagecard_html_erb___1256681443454400067_46944634694460'
+app/views/messages/show.html.erb:4:in `_app_views_messages_show_html_erb__4213598823395614310_46944621565980'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:46:31 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (11.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  Rendered messages/shared/_messagecard.html.erb (228.2ms)
+  Rendered messages/show.html.erb within layouts/application (232.6ms)
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 22.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `username' for #<#<Class:0x000055644c46f798>:0x00007f5348978540>):
+    1: <div class="card card-body">
+    2:   <!-- username is email without @ in my case -->
+    3:   <h3><%= username %> says...</h3>
+    4:   <span><%= message.content %></span>
+    5:   <b><%= time_ago_in_words(message.created_at) %></b>
+    6: </div>
+  
+app/views/messages/shared/_messagecard.html.erb:3:in `_app_views_messages_shared__messagecard_html_erb___1256681443454400067_69997838024940'
+app/views/messages/show.html.erb:4:in `_app_views_messages_show_html_erb__4213598823395614310_69997838457140'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:46:43 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (37.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/shared/_messagecard.html.erb:3
+  Rendered messages/shared/_messagecard.html.erb (11.1ms)
+  [1m[35m (22.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.8ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of replies/_reply.html.erb [1 times] (1.2ms)
+  Rendered replies/_replyform.html.erb (7.3ms)
+  Rendered messages/show.html.erb within layouts/application (66.7ms)
+  Rendered shared/_navbar.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 261ms (Views: 175.5ms | ActiveRecord: 80.8ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:49:10 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/show.html.erb within layouts/application (244.6ms)
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 18.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `time_created' for #<#<Class:0x000055644c46f798>:0x00007f5349385e20>
+Did you mean?  time_select):
+    1: <div class="container">
+    2:   <div class="row justify-content-center align-self-center">
+    3:     <div class="col">
+    4:       <%= render partial: 'messages/shared/messagecard', :locals => { :username => @message.user.email.split('@')[0], :message => @message, time_created => time_ago_in_words(@message.created_at) } %>
+    5: 
+    6:       <% if @message.user.id == current_user.id %>
+    7:         <%= link_to "Edit", edit_message_path(@message), class: 'btn btn-primary btn-sm' %>
+  
+app/views/messages/show.html.erb:4:in `_app_views_messages_show_html_erb__4213598823395614310_69997843724600'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:50:14 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.6ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered collection of replies/_reply.html.erb [1 times] (210.0ms)
+  Rendered messages/show.html.erb within layouts/application (240.8ms)
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 39.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `time_created' for #<#<Class:0x000055644c46f798>:0x00007f533c03a3b8>
+Did you mean?  time_select):
+    1: <%= render partial: 'messages/shared/messagecard', :locals => { :username => reply.user.email.split('@')[0], :message => reply.content, time_created => time_ago_in_words(reply.created_at) } %>
+  
+app/views/replies/_reply.html.erb:1:in `_app_views_replies__reply_html_erb___596237208959158164_69997733020960'
+app/views/messages/show.html.erb:12:in `_app_views_messages_show_html_erb__4213598823395614310_69997732943460'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:50:26 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (36.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (21.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[35m (14.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.2ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (7.3ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (18.9ms)
+  Rendered messages/show.html.erb within layouts/application (62.8ms)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 98.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `content' for "Test":String
+Did you mean?  constantize):
+    1: <div class="card card-body">
+    2:   <!-- username is email without @ in my case -->
+    3:   <h3><%= username %> says...</h3>
+    4:   <span><%= message.content %></span>
+    5:   <b><%= time_created %></b>
+    6: </div>
+  
+app/views/messages/shared/_messagecard.html.erb:4:in `_app_views_messages_shared__messagecard_html_erb___1256681443454400067_69997800378440'
+app/views/replies/_reply.html.erb:1:in `_app_views_replies__reply_html_erb___596237208959158164_69997800411500'
+app/views/messages/show.html.erb:12:in `_app_views_messages_show_html_erb__4213598823395614310_69997846528400'
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:51:04 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.8ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.7ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (10.3ms)
+  Rendered replies/_replyform.html.erb (7.3ms)
+  Rendered messages/show.html.erb within layouts/application (48.0ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 174ms (Views: 134.5ms | ActiveRecord: 36.9ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:52:23 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.9ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[35m (9.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (8.2ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (11.9ms)
+  Rendered replies/_replyform.html.erb (7.1ms)
+  Rendered messages/show.html.erb within layouts/application (56.1ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 185ms (Views: 129.9ms | ActiveRecord: 49.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-16 13:52:32 +0000
+Processing by MessagesController#all as HTML
+  [1m[36mUser Load (365.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering messages/all.html.erb within layouts/application
+  [1m[36mMessage Load (87.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY created_at DESC[0m
+  ↳ app/views/messages/all.html.erb:4
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.8ms)
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered messages/all.html.erb within layouts/application (111.1ms)
+  Rendered shared/_navbar.html.erb (1.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 728ms (Views: 257.5ms | ActiveRecord: 466.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2019-12-16 13:52:34 +0000
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.4ms)
+  Rendered shared/_navbar.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 172ms (Views: 160.7ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-16 13:52:36 +0000
+Processing by MessagesController#all as HTML
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering messages/all.html.erb within layouts/application
+  [1m[36mMessage Load (9.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY created_at DESC[0m
+  ↳ app/views/messages/all.html.erb:4
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (1.0ms)
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.2ms)
+  Rendered messages/all.html.erb within layouts/application (41.8ms)
+  Rendered shared/_navbar.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 201ms (Views: 145.2ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-16 13:56:32 +0000
+Processing by MessagesController#all as HTML
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering messages/all.html.erb within layouts/application
+  [1m[36mMessage Load (8.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY created_at DESC[0m
+  ↳ app/views/messages/all.html.erb:4
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered messages/all.html.erb within layouts/application (75.2ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 300ms (Views: 168.7ms | ActiveRecord: 101.4ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:56:33 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (8.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.6ms)
+  [1m[35m (8.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (8.4ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (14.3ms)
+  Rendered replies/_replyform.html.erb (6.1ms)
+  Rendered messages/show.html.erb within layouts/application (117.5ms)
+  Rendered shared/_navbar.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 300ms (Views: 206.3ms | ActiveRecord: 86.7ms)
+
+
+Started DELETE "/messages/4" for 127.0.0.1 at 2019-12-16 13:56:35 +0000
+Processing by MessagesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lHrLXK6etYf5eu1MP+kkGDfdB1SSbTBEtPkhh+3Sd4WgXP8eKtKtmPOxj8+O9rAIVvTDpDd+Au+0EV1X3YuePQ==", "id"=>"4"}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (5.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:49
+No template found for MessagesController#destroy, rendering head :no_content
+Completed 204 No Content in 723ms (ActiveRecord: 17.7ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:56:40 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (23.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (18.8ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (20.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.4ms)
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (10.9ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.1ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (12.6ms)
+  Rendered replies/_replyform.html.erb (6.1ms)
+  Rendered messages/show.html.erb within layouts/application (65.9ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 355ms (Views: 263.7ms | ActiveRecord: 86.8ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:56:42 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.3ms)
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.1ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.0ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (9.1ms)
+  Rendered replies/_replyform.html.erb (2.3ms)
+  Rendered messages/show.html.erb within layouts/application (35.1ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 154ms (Views: 111.7ms | ActiveRecord: 38.6ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:57:49 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (8.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.5ms)
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (7.3ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/replies/_reply.html.erb:1
+  Rendered messages/shared/_messagecard.html.erb (0.2ms)
+  Rendered collection of replies/_reply.html.erb [1 times] (13.0ms)
+  Rendered replies/_replyform.html.erb (5.8ms)
+  Rendered messages/show.html.erb within layouts/application (54.4ms)
+  Rendered shared/_navbar.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 186ms (Views: 132.3ms | ActiveRecord: 47.0ms)
+
+
+Started DELETE "/messages/4/replies/1" for 127.0.0.1 at 2019-12-16 13:57:51 +0000
+Processing by RepliesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sa4+Ze5kmnTMm8OhgKbqY/eKLQP7knzQWOjACm6TIiqFiAonaiiCa8ZQoSIxuX5zlqPp816BTntYALzaXsrLkg==", "message_id"=>"4", "id"=>"1"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (6.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:21
+  [1m[36mReply Load (7.0ms)[0m  [1m[34mSELECT  "replies".* FROM "replies" WHERE "replies"."message_id" = ? AND "replies"."id" = ? LIMIT ?[0m  [["message_id", 4], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/replies_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/replies_controller.rb:25
+  [1m[36mReply Destroy (11.0ms)[0m  [1m[31mDELETE FROM "replies" WHERE "replies"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/replies_controller.rb:25
+  [1m[35m (16.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/replies_controller.rb:25
+Redirected to http://localhost:3000/messages/4
+Completed 302 Found in 52ms (ActiveRecord: 46.8ms)
+
+
+Started GET "/messages/4" for 127.0.0.1 at 2019-12-16 13:57:51 +0000
+Processing by MessagesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mMessage Load (7.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:17
+  Rendering messages/show.html.erb within layouts/application
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/show.html.erb:4
+  Rendered messages/shared/_messagecard.html.erb (0.7ms)
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:11
+  [1m[36mReply Load (6.7ms)[0m  [1m[34mSELECT "replies".* FROM "replies" WHERE "replies"."message_id" = ?[0m  [["message_id", 4]]
+  ↳ app/views/messages/show.html.erb:12
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered replies/_replyform.html.erb (6.8ms)
+  Rendered messages/show.html.erb within layouts/application (41.1ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 230ms (Views: 185.9ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-16 13:57:53 +0000
+Processing by MessagesController#all as HTML
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+  Rendering messages/all.html.erb within layouts/application
+  [1m[36mMessage Load (7.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY created_at DESC[0m
+  ↳ app/views/messages/all.html.erb:4
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.4ms)
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/messages/all.html.erb:5
+  Rendered messages/shared/_messagecard.html.erb (0.0ms)
+  Rendered messages/all.html.erb within layouts/application (23.9ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 147ms (Views: 121.0ms | ActiveRecord: 23.4ms)
+
+

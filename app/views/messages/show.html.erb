@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row justify-content-center align-self-center">
     <div class="col">
-      <%= render partial: 'messages/shared/messagecard', :locals => { :message => @message } %>
+      <%= render partial: 'messages/shared/messagecard', :locals => { :username => @message.user.email.split('@')[0], :content => @message.content, :time_created => time_ago_in_words(@message.created_at) } %>
 
       <% if @message.user.id == current_user.id %>
         <%= link_to "Edit", edit_message_path(@message), class: 'btn btn-primary btn-sm' %>
         <%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Delete this message?" }, class: 'btn btn-secondary btn-sm' %>
       <% end %>
 
-      <!-- Replies -->
+      <b><%= @message.replies.count %> replies</b>
+      <%= render @message.replies %>
+      <%= render partial: 'replies/replyform' %>
     </div>
   </div>
 </div>

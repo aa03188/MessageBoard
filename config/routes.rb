@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   # define the method used for contactUs
   post 'contactUs', to: 'contacts#contactUs'
 
-  # pass the messages and contacts as a resource
-  resources :messages
+  # pass the messages, contacts and replies as a resource
+  resources :messages do
+    resources :replies
+  end
+  
   resources :contacts
 
   # index page of all messages, if login is succesful.

@@ -1,6 +1,6 @@
 <div class="card card-body">
   <!-- username is email without @ in my case -->
-  <h3><%= message.user.email.split('@')[0] %> says...</h3>
-  <span><%= message.content %></span>
-  <b><%= time_ago_in_words(message.created_at) %></b>
+  <h3><%= username %> says...</h3>
+  <span><%= content %></span>
+  <b><%= time_created %></b>
 </div>

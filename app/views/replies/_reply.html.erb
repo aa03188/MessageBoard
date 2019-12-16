@@ -1,1 +1,5 @@
-<%= reply.reply %>
+<%= render partial: 'messages/shared/messagecard', :locals => { :username => reply.user.email.split('@')[0], :content => reply.content, :time_created => time_ago_in_words(reply.created_at) } %>
+
+<% if reply.user.id == current_user.id %>
+  <%= link_to "Delete", [reply.message, reply], method: :delete, data: { confirm: "Delete this reply?" }, class: 'btn btn-secondary btn-sm' %>
+<% end %>
